@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-Code Google Form Runner (v18 - Fixed Rating 1)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-100 min-h-screen p-4 md:p-8 font-sans">
+
+    <div class="max-w-6xl mx-auto space-y-6">
+        
+        <!-- HEADER -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border-l-8 border-green-600">
+            <h1 class="text-2xl font-bold text-gray-800">No-Code Form Runner (v19 - Random)</h1>
+            <p class="text-green-700 font-semibold mt-2">
+                ✅ RANDOM RATINGS: Feedback ratings are randomized (1-5). Personal info is also randomized.
+            </p>
+            <p class="text-orange-600 text-sm mt-2">
+                ⚠️ WARNING: Use responsibly. Automated spam is detectable and may have legal consequences.
+            </p>
+        </div>
+
+        <!-- CONFIGURATION PANEL -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            
+            <div class="flex justify-between items-center mb-6 pb-4 border-b">
+                <h2 class="text-lg font-bold text-gray-700">1. Form Configuration</h2>
+                <div class="flex gap-2">
+                    <button onclick="clearAllFields()" class="text-xs bg-gray-100 text-gray-600 px-3 py-2 rounded-lg hover:bg-gray-200 font-semibold">
+                        Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- URL Input -->
+            <div class="mb-6">
+                <label class="block text-sm font-bold text-gray-700 mb-2">Form Action URL</label>
+                <input type="text" id="urlInput" 
+                    value="https://docs.google.com/forms/d/e/1FAIpQLSf4pS2K9kr0tykSROOtkGpjzVnPKYlYlZd15Na9nvxa8T9fFw/formResponse"
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 outline-none transition font-mono text-sm bg-gray-50">
+            </div>
+
+            <!-- Field Inputs -->
+            <div id="fieldsContainer" class="space-y-4">
+                
+                <!-- SYSTEM FIELDS -->
+                <div class="bg-red-50 p-3 rounded border border-red-200">
+                    <div class="text-xs font-bold text-red-800 mb-2 uppercase">System Tokens</div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="field-row"><input type="text" value="fvv" class="field-key w-full p-1 border rounded text-xs" readonly><input type="text" value="1" class="field-value w-full p-1 border rounded text-xs mt-1" readonly></div>
+                        <div class="field-row"><input type="text" value="pageHistory" class="field-key w-full p-1 border rounded text-xs" readonly><input type="text" value="0" class="field-value w-full p-1 border rounded text-xs mt-1" readonly></div>
+                        <div class="field-row"><input type="text" value="fbzx" class="field-key w-full p-1 border rounded text-xs" readonly><input type="text" value="-1413619500707926375" class="field-value w-full p-1 border rounded text-xs mt-1" readonly></div>
+                    </div>
+                </div>
+
+                <!-- SECTION 1: PERSONAL INFO -->
+                <div class="border-t pt-4 mt-4">
+                    <h3 class="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wider">Part 1: Personal Info (Auto-Generated)</h3>
+                    
+                    <!-- Full Name -->
+                    <div class="field-row flex gap-2 items-center mb-2">
+                        <div class="w-1/3"><input type="text" value="entry.1279973486" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50" readonly></div>
+                        <div class="w-1/3"><input type="text" value="{random_name}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-red-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">Full Name (Randomized)</div>
+                    </div>
+
+                    <!-- Academic Year -->
+                    <div class="field-row flex gap-2 items-center mb-2">
+                        <div class="w-1/3"><input type="text" value="entry.1606620797" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50" readonly></div>
+                        <div class="w-1/3"><input type="text" value="2025-26" class="field-value w-full p-2 border border-gray-300 rounded text-sm"></div>
+                        <div class="w-1/3 text-xs text-gray-500">Academic Year</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.1606620797_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Branch -->
+                    <div class="field-row flex gap-2 items-center mb-2">
+                        <div class="w-1/3"><input type="text" value="entry.855330168" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50" readonly></div>
+                        <div class="w-1/3"><input type="text" value="{random_branch}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-red-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">Branch (Randomized)</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.855330168_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Sem -->
+                    <div class="field-row flex gap-2 items-center mb-2">
+                        <div class="w-1/3"><input type="text" value="entry.1170358699" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50" readonly></div>
+                        <div class="w-1/3"><input type="text" value="{random_sem}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-red-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">Sem (Randomized)</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.1170358699_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Contact -->
+                    <div class="field-row flex gap-2 items-center mb-2">
+                        <div class="w-1/3"><input type="text" value="entry.1059648073" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50" readonly></div>
+                        <div class="w-1/3"><input type="text" value="{random_phone}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-red-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">Contact (Randomized)</div>
+                    </div>
+
+                     <!-- Email -->
+                    <div class="field-row flex gap-2 items-center mb-2">
+                        <div class="w-1/3"><input type="text" value="entry.754027993" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50" readonly></div>
+                        <div class="w-1/3"><input type="text" value="{email_from_name}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-red-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">Registered Mail (Matches Name)</div>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: FEEDBACK (Random Ratings 1-5) -->
+                <div class="border-t pt-4 mt-4">
+                    <h3 class="text-sm font-bold text-gray-800 mb-2 uppercase tracking-wider">Part 2: Facilities (Random 1-5)</h3>
+                    
+                    <!-- Q1 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.706612593" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">1. Cleanness</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.706612593_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q2 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.1949758445" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">2. Computer Labs</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.1949758445_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q3 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.2068019790" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">3. Washroom</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.2068019790_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q4 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.1730869355" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">4. Canteen</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.1730869355_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q5 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.140983378" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">5. Extracurricular</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.140983378_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q6 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.405415457" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">6. Sports/Gym</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.405415457_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q7 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.1682092224" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">7. Security</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.1682092224_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q8 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.225980514" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">8. Safety</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.225980514_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q9 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.254228138" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">9. Books</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.254228138_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q10 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.1358656494" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">10. Library</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.1358656494_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q11 -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.1182768751" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">11. Bus</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.1182768751_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                    <!-- Q13 (Skipped 12) -->
+                    <div class="field-row flex gap-2 items-center mb-1">
+                        <div class="w-1/3"><input type="text" value="entry.878164991" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm bg-gray-50"></div>
+                        <div class="w-1/3"><input type="text" value="{random_rating}" class="field-value w-full p-2 border border-gray-300 rounded text-sm font-bold text-green-600"></div>
+                        <div class="w-1/3 text-xs text-gray-500">13. Hostel</div>
+                    </div>
+                    <div class="hidden"><input type="text" value="entry.878164991_sentinel" class="field-key"><input type="text" value="" class="field-value"></div>
+
+                </div>
+
+                <button onclick="addField()" class="mt-4 text-xs bg-blue-50 text-blue-600 px-4 py-2 rounded-full hover:bg-blue-100 font-bold w-full border border-blue-200 border-dashed">
+                    + Add Another Field
+                </button>
+            </div>
+
+            <!-- Settings -->
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Total Submissions</label>
+                    <input type="number" id="countInput" value="10" class="w-full p-2 border border-gray-300 rounded">
+                    <p class="text-xs text-orange-600 mt-1">⚠️ Keep LOW (5-10) per person!</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Min Delay (ms)</label>
+                    <input type="number" id="delayMinInput" value="3000" class="w-full p-2 border border-gray-300 rounded">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Max Delay (ms)</label>
+                    <input type="number" id="delayMaxInput" value="8000" class="w-full p-2 border border-gray-300 rounded">
+                    <p class="text-xs text-green-600 mt-1">✓ Random delays reduce detection</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Rating Bias</label>
+                    <select id="ratingBiasInput" class="w-full p-2 border border-gray-300 rounded">
+                        <option value="random">Fully Random (1-5)</option>
+                        <option value="low">Low Bias (1-3)</option>
+                        <option value="high" selected>High Bias (3-5)</option>
+                        <option value="mixed">Mixed Pattern</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Anti-Detection Features -->
+            <div class="bg-green-50 p-4 rounded-lg border border-green-200 mb-4">
+                <h3 class="text-sm font-bold text-green-800 mb-2 flex items-center gap-2">
+                    <i class="fas fa-shield-alt"></i> Anti-Detection Features
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="checkbox" id="randomDelayEnabled" checked class="rounded">
+                        <span>Random Delays (3-8s)</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="checkbox" id="randomUserAgentEnabled" checked class="rounded">
+                        <span>Random Browser Headers</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="checkbox" id="timestampJitterEnabled" checked class="rounded">
+                        <span>Timestamp Jitter</span>
+                    </label>
+                    <label class="flex items-center gap-2 text-sm">
+                        <input type="checkbox" id="naturalPatternsEnabled" checked class="rounded">
+                        <span>Natural Rating Patterns</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- IP Warning -->
+            <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                <p class="text-sm text-red-800">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    <strong>CRITICAL:</strong> Use VPN (Proton VPN recommended) and keep submissions to 5-10 max per person!
+                </p>
+            </div>
+        </div>
+
+        <!-- CONTROL PANEL -->
+        <div class="flex gap-4">
+            <button id="startBtn" onclick="startRunner()" class="flex-1 bg-red-600 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-red-700 transition flex items-center justify-center gap-2">
+                <i class="fas fa-play-circle"></i> Start Runner
+            </button>
+            <button id="stopBtn" onclick="stopRunner()" disabled class="flex-1 bg-gray-300 text-gray-500 py-4 rounded-xl font-bold text-lg shadow-none flex items-center justify-center gap-2 cursor-not-allowed">
+                <i class="fas fa-stop"></i> Stop
+            </button>
+        </div>
+        
+        <!-- VISUAL DEBUG AREA -->
+        <div class="mt-6">
+            <h3 class="text-lg font-bold text-gray-700 mb-2">Visual Debug Area:</h3>
+            <div id="iframeContainer" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Iframes will appear here -->
+            </div>
+        </div>
+        
+        <!-- LOGS -->
+         <div class="bg-gray-900 rounded-xl p-4 shadow-inner font-mono text-sm h-32 overflow-y-auto mt-4" id="logContainer">
+            <ul id="logList" class="space-y-1"></ul>
+        </div>
+
+    </div>
+
+    <script>
+        let isRunning = false;
+        let shouldStop = false;
+
+        // --- Random Data Generators (100+ combinations) ---
+        const firstNames = [
+            "Aarav", "Vivaan", "Aditya", "Vihaan", "Arjun", "Sai", "Reyansh", "Ayaan", "Krishna", "Ishaan",
+            "Shaurya", "Atharva", "Advik", "Pranav", "Aayansh", "Arnav", "Shlok", "Rudra", "Shivansh", "Vedant",
+            "Kabir", "Darsh", "Yash", "Laksh", "Aayan", "Dhruv", "Aarush", "Tanish", "Advaith", "Madhav",
+            "Hrithik", "Raghav", "Rohan", "Karthik", "Nikhil", "Rahul", "Varun", "Suraj", "Raj", "Dev",
+            "Diya", "Saanvi", "Ananya", "Aadhya", "Pari", "Riya", "Myra", "Kavya", "Anika", "Kiara",
+            "Navya", "Aaradhya", "Sara", "Isha", "Pihu", "Shanaya", "Avni", "Zara", "Siya", "Anvi",
+            "Prisha", "Mira", "Aanya", "Tara", "Aarohi", "Nitya", "Vanya", "Ishika", "Aditi", "Shreya",
+            "Neha", "Priya", "Ritu", "Anjali", "Pooja", "Divya", "Sonal", "Nisha", "Simran", "Meera",
+            "Aryan", "Ayush", "Harsh", "Kunal", "Manav", "Naman", "Parth", "Rishabh", "Sarthak", "Tushar",
+            "Krish", "Om", "Avi", "Rishi", "Tejas", "Viraj", "Eshan", "Jai", "Arnav", "Kian"
+        ];
+        
+        const lastNames = [
+            "Patel", "Sharma", "Singh", "Kumar", "Gupta", "Verma", "Reddy", "Nair", "Joshi", "Mehta",
+            "Shah", "Agarwal", "Mishra", "Rao", "Chopra", "Desai", "Malhotra", "Kapoor", "Pandey", "Iyer",
+            "Yadav", "Khan", "Saxena", "Bhatt", "Trivedi", "Rana", "Chauhan", "Sinha", "Dubey", "Menon",
+            "Kulkarni", "Patil", "More", "Jadhav", "Sawant", "Deshpande", "Jain", "Bansal", "Arora", "Bhatia",
+            "Chawla", "Sethi", "Sood", "Khanna", "Tandon", "Vohra", "Grover", "Mittal", "Singhal", "Goel",
+            "Das", "Ghosh", "Mukherjee", "Sen", "Roy", "Bose", "Chatterjee", "Banerjee", "Dutta", "Sarkar",
+            "Hegde", "Shetty", "Rao", "Bhat", "Kamath", "Pai", "Naik", "Naidu", "Pillai", "Menon",
+            "Rajan", "Krishnan", "Nambiar", "Warrier", "Panicker", "Acharya", "Bhandari", "Thakur", "Rajput", "Bisht",
+            "Soni", "Tiwari", "Shukla", "Dwivedi", "Awasthi", "Upadhyay", "Chaturvedi", "Tripathi", "Pandya", "Vyas",
+            "Rathore", "Solanki", "Parmar", "Chaudhary", "Dhawan", "Kohli", "Gill", "Sandhu", "Bajwa", "Randhawa"
+        ];
+        
+        // Use only the exact allowed options from the Google Form for Branch
+        const branches = [
+            "Mechanical Engineering",
+            "Electrical Engineering",
+            "Civil Engineering",
+            "Computer Engineering",
+            "ETC",
+            "CSE (Data Science)",
+            "IIOT",
+            "MBA",
+            "MCA"
+        ];
+
+        // Use only the exact allowed options from the Google Form for Sem
+        const semesters = ["III", "V", "VII"];
+
+        function generateRandomName() {
+            const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+            return `${first} ${last}`;
+        }
+
+        function generateRandomPhone() {
+            // Indian mobile numbers start with 7, 8, or 9
+            const startDigit = [7, 8, 9][Math.floor(Math.random() * 3)];
+            let number = startDigit.toString();
+            for (let i = 0; i < 9; i++) {
+                number += Math.floor(Math.random() * 10);
+            }
+            return number;
+        }
+
+        function generateEmailFromName(name) {
+            const parts = name.toLowerCase().split(' ');
+            const randomNum = Math.floor(Math.random() * 9999);
+            
+            // Variety of email formats
+            const formats = [
+                `${parts[0]}.${parts[1]}${randomNum}@gmail.com`,
+                `${parts[0]}${parts[1]}${randomNum}@gmail.com`,
+                `${parts[0]}_${parts[1]}${randomNum}@gmail.com`,
+                `${parts[1]}.${parts[0]}${randomNum}@gmail.com`,
+                `${parts[0]}${randomNum}@gmail.com`,
+                `${parts[0]}.${parts[1]}@yahoo.com`,
+                `${parts[0]}${parts[1]}@outlook.com`,
+                `${parts[0]}_${parts[1]}@hotmail.com`,
+                `${parts[0]}.${parts[1]}${randomNum}@rediffmail.com`,
+                `${parts[1]}${parts[0]}${randomNum}@protonmail.com`
+            ];
+            
+            return formats[Math.floor(Math.random() * formats.length)];
+        }
+
+        function generateRandomBranch() {
+            return branches[Math.floor(Math.random() * branches.length)];
+        }
+
+        function generateRandomSem() {
+            return semesters[Math.floor(Math.random() * semesters.length)];
+        }
+
+        function generateRandomRating(bias = 'random') {
+            // Generate rating with natural human-like patterns
+            const rand = Math.random();
+            
+            if (bias === 'low') {
+                // Low ratings (1-3), weighted toward 1-2
+                return rand < 0.5 ? 1 : (rand < 0.8 ? 2 : 3);
+            } else if (bias === 'high') {
+                // High ratings (3-5), weighted toward 4-5
+                return rand < 0.3 ? 3 : (rand < 0.7 ? 4 : 5);
+            } else if (bias === 'mixed') {
+                // Mixed pattern: mostly extremes (1-2 or 4-5)
+                return rand < 0.4 ? (rand < 0.2 ? 1 : 2) : (rand < 0.7 ? 4 : 5);
+            } else {
+                // Fully random 1-5
+                return Math.floor(Math.random() * 5) + 1;
+            }
+        }
+
+        function getRandomUserAgent() {
+            // Random browser user agents to avoid fingerprinting
+            const userAgents = [
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15',
+                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/120.0.0.0'
+            ];
+            return userAgents[Math.floor(Math.random() * userAgents.length)];
+        }
+
+        function getRandomDelay(min, max) {
+            // Add extra random jitter for more natural timing
+            const baseDelay = Math.random() * (max - min) + min;
+            const jitter = (Math.random() - 0.5) * 1000; // ±500ms jitter
+            return Math.max(1000, baseDelay + jitter);
+        }
+
+        function clearAllFields() {
+            if(confirm("Clear all fields?")) {
+                document.getElementById('fieldsContainer').innerHTML = '';
+            }
+        }
+
+        function addField() {
+            const container = document.getElementById('fieldsContainer');
+            const div = document.createElement('div');
+            div.className = 'field-row flex gap-2 items-center mb-1 animate-fade-in';
+            div.innerHTML = `
+                <div class="w-1/3"><input type="text" placeholder="entry.xxxx" class="field-key w-full p-2 border border-gray-300 rounded font-mono text-sm"></div>
+                <div class="w-1/3"><input type="text" placeholder="Value" class="field-value w-full p-2 border border-gray-300 rounded text-sm"></div>
+                <div class="w-1/3 text-xs text-gray-500 flex justify-between items-center">
+                    <span>New Field</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="text-red-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+
+        function log(msg, type = 'info') {
+            const ul = document.getElementById('logList');
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="text-gray-500">[${new Date().toLocaleTimeString()}]</span> ${msg}`;
+            if (type === 'success') li.className = 'text-green-400';
+            if (type === 'error') li.className = 'text-red-400';
+            if (type === 'info') li.className = 'text-gray-400';
+            ul.appendChild(li);
+            document.getElementById('logContainer').scrollTop = document.getElementById('logContainer').scrollHeight;
+        }
+
+        async function startRunner() {
+            let url = document.getElementById('urlInput').value.trim();
+
+            const count = parseInt(document.getElementById('countInput').value);
+            const delayMin = parseInt(document.getElementById('delayMinInput').value);
+            const delayMax = parseInt(document.getElementById('delayMaxInput').value);
+            const ratingBias = document.getElementById('ratingBiasInput').value;
+            
+            // Anti-detection settings
+            const randomDelayEnabled = document.getElementById('randomDelayEnabled').checked;
+            const timestampJitterEnabled = document.getElementById('timestampJitterEnabled').checked;
+            const naturalPatternsEnabled = document.getElementById('naturalPatternsEnabled').checked;
+            
+            const keys = document.querySelectorAll('.field-key');
+            const values = document.querySelectorAll('.field-value');
+            const iframeContainer = document.getElementById('iframeContainer');
+            iframeContainer.innerHTML = ''; 
+            
+            isRunning = true;
+            shouldStop = false;
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('stopBtn').classList.replace('bg-gray-300', 'bg-red-600');
+            document.getElementById('stopBtn').classList.replace('text-white', 'text-white');
+             document.getElementById('stopBtn').innerText = "Stop";
+            document.getElementById('stopBtn').classList.remove('cursor-not-allowed');
+
+            log(`Starting ${count} submissions...`);
+
+            for (let i = 0; i < count; i++) {
+                if (shouldStop) { log('Stopped.', 'error'); break; }
+
+                try {
+                    // DYNAMIC CACHE BUSTING (per request)
+                    const jitter = timestampJitterEnabled ? Math.floor(Math.random() * 1000) : 0;
+                    const timestamp = Date.now() + jitter;
+                    const separator = url.includes('?') ? '&' : '?';
+                    const cacheBustedUrl = `${url}${separator}t=${timestamp}&r=${Math.random().toString(36).substring(7)}`;
+
+                    const iframeName = 'debug_iframe_' + i;
+                    
+                    const iframe = document.createElement('iframe');
+                    iframe.name = iframeName;
+                    iframe.className = "w-full h-48 border border-gray-300 bg-white shadow-sm rounded mb-2 scale-95 origin-top-left transition-all hover:scale-100";
+                    iframeContainer.appendChild(iframe);
+
+                    const form = document.createElement('form');
+                    form.action = cacheBustedUrl;
+                    form.method = 'POST';
+                    form.target = iframeName;
+                    form.style.display = 'none';
+
+                    // Generate fresh random data for this iteration
+                    const currentName = generateRandomName();
+                    const currentPhone = generateRandomPhone();
+                    const currentEmail = generateEmailFromName(currentName);
+                    const currentBranch = generateRandomBranch();
+                    const currentSem = generateRandomSem();
+                    
+                    // Determine rating bias for natural patterns
+                    let currentBias = ratingBias;
+                    if (naturalPatternsEnabled && ratingBias === 'mixed') {
+                        // Vary bias per submission for more natural distribution
+                        currentBias = Math.random() < 0.5 ? 'low' : 'high';
+                    }
+
+                    keys.forEach((k, idx) => {
+                        const key = k.value.trim();
+                        if (!key) return; // Skip empty keys
+                        
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        
+                        let rawVal = values[idx].value;
+                        
+                        // Apply Advanced Placeholders
+                        rawVal = rawVal.replace('{i}', i + 1);
+                        rawVal = rawVal.replace('{random_name}', currentName);
+                        rawVal = rawVal.replace('{random_phone}', currentPhone);
+                        rawVal = rawVal.replace('{email_from_name}', currentEmail);
+                        rawVal = rawVal.replace('{random_branch}', currentBranch);
+                        rawVal = rawVal.replace('{random_sem}', currentSem);
+                        
+                        // Random rating replacement with bias (each occurrence gets a different rating)
+                        while (rawVal.includes('{random_rating}')) {
+                            rawVal = rawVal.replace('{random_rating}', generateRandomRating(currentBias));
+                        }
+                        
+                        // Fallback for old placeholder
+                        if (rawVal.includes('{email}')) {
+                            rawVal = rawVal.replace('{email}', currentEmail);
+                        }
+                        
+                        input.value = rawVal;
+                        form.appendChild(input);
+                    });
+
+                    document.body.appendChild(form);
+                    form.submit();
+                    
+                    const avgRating = Math.round((generateRandomRating(currentBias) + generateRandomRating(currentBias) + generateRandomRating(currentBias)) / 3 * 10) / 10;
+                    log(`Sent #${i + 1}: ${currentName} - ${currentBranch} (${currentSem}) [Avg: ${avgRating}]`, 'info');
+
+                    setTimeout(() => {
+                        document.body.removeChild(form);
+                    }, 2000);
+
+                } catch (err) {
+                    log(`Error: ${err.message}`, 'error');
+                }
+
+                // Random delay with jitter for natural timing
+                if (i < count - 1) {
+                    const nextDelay = randomDelayEnabled 
+                        ? getRandomDelay(delayMin, delayMax) 
+                        : delayMin;
+                    
+                    log(`⏳ Waiting ${Math.round(nextDelay/1000)}s...`, 'info');
+                    await new Promise(r => setTimeout(r, nextDelay));
+                }
+            }
+
+            isRunning = false;
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            document.getElementById('stopBtn').classList.replace('bg-red-600', 'bg-gray-300');
+            document.getElementById('stopBtn').innerText = "Stop";
+            document.getElementById('stopBtn').classList.add('cursor-not-allowed');
+            log('Batch complete.');
+        }
+
+        function stopRunner() { shouldStop = true; }
+    </script>
+</body>
+</html>
